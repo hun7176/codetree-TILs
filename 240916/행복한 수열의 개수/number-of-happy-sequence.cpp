@@ -10,7 +10,9 @@ int main(){
             }
     }
     int result=0;
-    int count=1;
+    int count=0;
+
+
     for(int i=0; i<n; i++){
         count=1;
         for(int j=0; j<n-1; j++){
@@ -20,9 +22,11 @@ int main(){
             else{
                 count=1;
             }
-        }
-        if(count>=m){
+
+            if(count>=m){
             result++;
+           //cout<<"1단계 브레이크 arr"<<i<<j<<"  "<<result<<"개"<<"\n";
+            break;}
         }
     }
     for(int i=0;i<n;i++){
@@ -34,10 +38,12 @@ int main(){
             else{
                 count=1;
             }
-        }
         if(count>=m){
-            result++;
+        result++;
+       // cout<<"2단계 브레이크 arr"<<i<<j<<"\n";
+        break;}
         }
+
     }
 
     cout<<result;
