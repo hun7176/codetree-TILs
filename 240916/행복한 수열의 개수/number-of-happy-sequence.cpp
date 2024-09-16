@@ -22,7 +22,7 @@ int main(){
             else{
                 count=1;
             }
-        if(count>m) break;
+        if(count>=m) break;
 
         }
         if(count>=m){
@@ -39,7 +39,7 @@ int main(){
             else{
                 count=1;
             }
-        if(count<=m) break;
+        if(count>=m) break;
         }
         if(count>=m){
         result++;
