@@ -1,53 +1,56 @@
 #include <iostream>
+#include <algorithm>
+
 using namespace std;
+
+#define MAX_N 100
+
+int n, m;
+int grid[MAX_N][MAX_N];
+
+int seq[MAX_N];
+
+bool is_seq(){
+    int count=1;
+    int max_count=1;
+    for(int i=1;i<n;i++){
+        if(seq[i-1]==seq[i]){
+            count++;
+        }
+        else{
+            count=1;
+        }
+        max_count=max(max_count,count);
+    }
+    return max_count>=m;
+
+}
+
+
 int main(){
-    int arr[101][101]={0};
-    int n,m;
     cin>>n>>m;
     for(int i=0;i<n;i++){
-            for(int j=0;j<n;j++){
-                cin>>arr[i][j];
-            }
+        for(int j=0;j<n;j++){
+            cin>>grid[i][j];
+        }
     }
     int result=0;
-    int count=0;
-
-
-    for(int i=0; i<n; i++){
-        count=1;
-        for(int j=0; j<n-1; j++){
-            if(arr[i][j]==arr[i][j+1]){
-                count++;
-            }
-            else{
-                count=1;
-            }
-        if(count>=m) break;
-
-        }
-        if(count>=m){
-        result++;
-        //cout<<"1단계 브레이크 arr"<<i<<" "<<result<<"개"<<"\n";
-        }
-    }
     for(int i=0;i<n;i++){
-        count=1;
-        for(int j=0;j<n-1;j++){
-            if(arr[j][i]==arr[j+1][i]){
-                count++;
-            }
-            else{
-                count=1;
-            }
-        if(count>=m) break;
+        for(int j=0;j<n;j++){
+            seq[j]=grid[i][j];
         }
-        if(count>=m){
-        result++;
-       // cout<<"2단계 브레이크 arr"<<i<<"\n";
+        if(is_seq()){
+            result++;
         }
-
     }
-
+    
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            seq[j]=grid[j][i];
+        }
+        if(is_seq()){
+            result++;
+        }
+    }
     cout<<result;
-    return 0;
 }
