@@ -22,11 +22,12 @@ int main(){
             else{
                 count=1;
             }
+        if(count>m) break;
 
-            if(count>=m){
-            result++;
-           //cout<<"1단계 브레이크 arr"<<i<<j<<"  "<<result<<"개"<<"\n";
-            break;}
+        }
+        if(count>=m){
+        result++;
+        //cout<<"1단계 브레이크 arr"<<i<<" "<<result<<"개"<<"\n";
         }
     }
     for(int i=0;i<n;i++){
@@ -38,10 +39,11 @@ int main(){
             else{
                 count=1;
             }
+        if(count<=m) break;
+        }
         if(count>=m){
         result++;
-       // cout<<"2단계 브레이크 arr"<<i<<j<<"\n";
-        break;}
+       // cout<<"2단계 브레이크 arr"<<i<<"\n";
         }
 
     }
