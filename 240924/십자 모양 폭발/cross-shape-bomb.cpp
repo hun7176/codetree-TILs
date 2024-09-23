@@ -8,16 +8,14 @@ int n;
 void make_zero(int a, int b){
     a--;
     b--;
-    int temp=arr[a][b];
-    for(int i=-(temp-1);i<=temp-1;i++){
-        if(i<0){
-            if(a-i>=n || b-i>=n) continue;
-        }
-        if(i>0){
-            if(a-i<0 || b-i<0) continue;
-        }
-        arr[a-i][b]=0;
-        arr[a][b-i]=0; 
+    int move=arr[a][b]-1;
+    for(int i=-move;i<=move;i++){
+        if(a+i<0) continue;
+        arr[a+i][b]=0;
+    }
+    for(int i=-move;i<=move;i++){
+        if(b+i<0) continue;
+        arr[a][b+i]=0;
     }
 }
 
@@ -33,12 +31,12 @@ int main(){
     cin>>a>>b;
     make_zero(a,b);
 
- //   for(int i=0;i<n;i++){
- //       for(int j=0;j<n;j++){
- //           cout<<arr[i][j]<<" ";
-  //      }
- //       cout<<"\n";
- //   }    
+    // for(int i=0;i<n;i++){
+    //     for(int j=0;j<n;j++){
+    //         cout<<arr[i][j]<<" ";
+    //     }
+    //     std::cout<<"\n";
+    // }    
 
     int count=n-1;
     for(int j=0;j<n;j++){
@@ -53,7 +51,7 @@ int main(){
             }
         }
     }
-
+//    std::cout<<"\n";
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             cout<<update_arr[i][j]<<" ";
