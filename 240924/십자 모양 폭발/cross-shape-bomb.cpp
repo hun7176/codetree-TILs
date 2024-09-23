@@ -33,12 +33,12 @@ int main(){
     cin>>a>>b;
     make_zero(a,b);
 
-    for(int i=0;i<n;i++){
-        for(int j=0;j<n;j++){
-            cout<<arr[i][j]<<" ";
-        }
-        cout<<"\n";
-    }    
+ //   for(int i=0;i<n;i++){
+ //       for(int j=0;j<n;j++){
+ //           cout<<arr[i][j]<<" ";
+  //      }
+ //       cout<<"\n";
+ //   }    
 
     int count=n-1;
     for(int j=0;j<n;j++){
