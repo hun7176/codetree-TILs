@@ -10,11 +10,11 @@ void make_zero(int a, int b){
     b--;
     int move=arr[a][b]-1;
     for(int i=-move;i<=move;i++){
-        if(a+i<0 || a+i>201) continue;
+        if(a+i<0 || a+i>200) continue;
         arr[a+i][b]=0;
     }
     for(int i=-move;i<=move;i++){
-        if(b+i<0 || b+i>201) continue;
+        if(b+i<0 || b+i>200) continue;
         arr[a][b+i]=0;
     }
 }
